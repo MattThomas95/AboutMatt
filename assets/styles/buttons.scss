@@ -1,0 +1,143 @@
+button,
+.button {
+    cursor: pointer;
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
+
+.button-empty {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    line-height: 1;
+}
+
+.button-reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: rem-calc(14);
+    padding-right: rem-calc(28);
+    padding-bottom: rem-calc(14);
+    padding-left: rem-calc(28);
+
+    border: rem-calc(2) solid transparent;
+    background-color: transparent;
+
+    border-radius: 0;
+    cursor: pointer;
+
+    @include button;
+    text-align: center;
+    text-decoration: none;
+
+    transition: all linear 0.2s;
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
+
+// .button-thin {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+
+//     padding-top: rem-calc(10);
+//     padding-right: rem-calc(30);
+//     padding-bottom: rem-calc(10);
+//     padding-left: rem-calc(30);
+
+//     border: rem-calc(2) solid transparent;
+//     background-color: transparent;
+
+//     border-radius: 0;
+//     cursor: pointer;
+
+//     @include button-thin;
+//     text-align: center;
+//     text-decoration: none;
+
+//     transition: all linear 0.2s;
+// }
+
+.button-radius {
+    border-radius: rem-calc(150);
+}
+
+@each $name, $color in $grayscale {
+    .button-grayscale-#{$name} {
+        background-color: $color;
+
+        @if index($grayscaleDark, $name) {
+            color: grayscale_colors("quaternary");
+        } @else if index($grayscaleBright, $name) {
+            color: grayscale_colors("octary");
+        }
+
+        &:hover {
+            background-color: darken($color, 15%);
+        }
+    }
+}
+@each $name, $color in $colors {
+    .button-#{$name} {
+        background-color: $color;
+
+        @if index($dark, $name) {
+            color: white;
+        } @else if index($bright, $name) {
+            color: theme_colors("tertiary");
+        }
+
+        &:hover {
+            background-color: darken($color, 15%);
+        }
+    }
+
+    .button-hollow-#{$name} {
+        border-color: $color;
+        color: white;
+
+        &:hover {
+            background-color: $color;
+            color: theme_colors("dark");
+        }
+    }
+}
+/* Buttons
+============================================================*/
+.block-button {
+    display: flex;
+    width: auto;
+    align-items: center;
+    font-family: "Antonio", sans-serif;
+    justify-content: space-between;
+    width: auto;
+    background: #337ab7;
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+}
+
+@media screen and (min-width: 1024px) {
+    .block-button {
+        font-size: 24px;
+        line-height: 40px;
+        padding: 16px 32px;
+    }
+}
+
+.block-button .icon {
+    margin-left: 8px;
+}

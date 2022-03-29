@@ -1,0 +1,29 @@
+$colors: (
+    // c0: #1c2b33, // septary
+    // c1: #344854, // quinary
+    // c2: #67788a, // secondary
+    // c3: #cbd2d9, // octary
+    light: #fff,
+    dark: #000,
+    brand-red: #eb001b,
+    brand-orange: #ff5f00,
+    brand-yellow: #f79e1b,
+    primary: #ff9e01,
+    secondary: #e4dfdd,
+    tertiary: #0f0f0f,
+    quaternary: #6d3500,
+    quinary: #bf8c00,
+    senary: #d1e3ab,
+    septary: #016656,
+    octary: #c2b7b3,
+    // nonary: #3caaaa,
+    // denary: #233e54,
+    twitter: #1da1f2,
+    facebook: #395185
+);
+$dark: none transparent brand primary tertiary quaternary quinary septary nonary;
+$bright: white secondary senary octary;
+
+@function theme_colors($key) {
+    @return map-get($colors, $key);
+}

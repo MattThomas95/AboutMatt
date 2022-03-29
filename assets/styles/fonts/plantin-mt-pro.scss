@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Plantin MT Pro";
+    src: url("/fonts/PlantinMTProRg.woff2") format("woff2"),
+        url("/fonts/PlantinMTProRg.woff") format("woff"),
+        url("/fonts/PlantinMTProRg.otf") format("opentype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Plantin MT Pro Italic";
+    src: url("/fonts/PlantinMTProRgIt.woff2") format("woff2"),
+        url("/fonts/PlantinMTProRgIt.woff") format("woff"),
+        url("/fonts/PlantinMTProRgIt.otf") format("opentype");
+    font-style: normal;
+    font-weight: 400;
+}

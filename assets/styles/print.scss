@@ -1,0 +1,25 @@
+@media print {
+    @page {
+        overflow: visible !important;
+        margin: 21mm;
+    }
+
+    * {
+        background: transparent !important;
+        box-shadow: none !important;
+        color: #000 !important;
+        text-shadow: none !important;
+    }
+
+    a {
+        text-decoration: underline !important;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+
+    p {
+        margin-bottom: 12pt;
+    }
+}

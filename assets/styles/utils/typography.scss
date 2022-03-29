@@ -1,0 +1,177 @@
+@mixin base {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    font-family: $base-font-family;
+
+    @include large {
+        font-size: rem-calc(20);
+        line-height: 1.5;
+    }
+}
+
+@mixin h1 {
+    font-family: $font-test-manuka;
+    font-size: rem-calc(70);
+    line-height: 1;
+    @include medium {
+        font-size: rem-calc(130);
+    }
+    @include large {
+        font-size: rem-calc(140);
+    }
+    @include xlarge {
+        font-size: rem-calc(166);
+    }
+}
+@mixin h2 {
+    // assumed H2
+    font-size: rem-calc(22);
+    font-weight: 500;
+    line-height: rem-calc(30);
+}
+@mixin h3 {
+    // font-size: rem-calc(16);
+    // line-height: 1.45;
+
+    // @include medium {
+    //     font-size: rem-calc(22);
+    // }
+
+    // @include xlarge {
+    // }
+
+    // @include xxlarge {
+    // }
+}
+@mixin h4 {
+    // font-size: rem-calc(14);
+    // font-weight: 600;
+    // line-height: 1.4;
+    // text-transform: uppercase;
+
+    // @include medium {
+    //     font-size: rem-calc(12);
+    // }
+
+    // @include xlarge {
+    // }
+
+    // @include xxlarge {
+    // }
+}
+@mixin h4_alt {
+    // font-size: rem-calc(14);
+    // font-weight: 600;
+    // line-height: 1.4;
+
+    // @include medium {
+    //     font-size: rem-calc(12);
+    // }
+    // @include xlarge {
+    // }
+
+    // @include xxlarge {
+    // }
+}
+@mixin h5 {
+    // font-size: rem-calc(10);
+    // font-weight: 600;
+    // line-height: 1.6;
+    // text-transform: uppercase;
+
+    // @include medium {
+    //     font-size: rem-calc(12);
+    // }
+    // @include xlarge {
+    // }
+
+    // @include xxlarge {
+    // }
+}
+@mixin h6 {
+    // font-size: rem-calc(10);
+    // font-weight: 600;
+    // line-height: 1.6;
+
+    // @include medium {
+    //     font-size: rem-calc(10);
+    // }
+    // @include xlarge {
+    // }
+
+    // @include xxlarge {
+    // }
+}
+@mixin paragraph {
+    // Mobile Paragraph
+    font-size: rem-calc(18);
+    font-weight: 400;
+    line-height: 1.5;
+
+    @include xlarge {
+        // assumed Paragraph
+        font-size: rem-calc(26);
+    }
+}
+
+@mixin subtitle {
+    // assumed subtitle text
+    font-size: rem-calc(18);
+    font-weight: 700;
+    line-height: rem-calc(28);
+
+    @include large(only) {
+        font-size: rem-calc(16);
+        line-height: rem-calc(24);
+    }
+}
+@mixin button {
+    text-transform: uppercase;
+    font-family: $font-mark;
+    font-size: rem-calc(14);
+    font-weight: 700;
+    line-height: 1.1;
+}
+@mixin button-thin {
+    // assumed button
+    font-size: rem-calc(12);
+    font-weight: 700;
+    line-height: rem-calc(1);
+
+    @include xxlarge {
+        // Button
+        font-size: rem-calc(32);
+        line-height: rem-calc(42);
+    }
+}
+
+@mixin gdpr_alert_text {
+    // mobile cookie text
+    font-size: rem-calc(11);
+    font-weight: 400;
+    line-height: rem-calc(14);
+    text-align: left;
+
+    @include medium {
+        // assumed Paragraph
+        font-size: rem-calc(14);
+        line-height: rem-calc(22);
+    }
+    @include xlarge {
+        // assumed Paragraph
+        font-size: rem-calc(16);
+        line-height: rem-calc(26);
+    }
+}
+@mixin toast_header {
+    // mobile toast header
+    font-size: rem-calc(18);
+    font-weight: 800;
+    line-height: rem-calc(28);
+
+    @include xlarge {
+        // toast header
+        font-size: rem-calc(36);
+        line-height: rem-calc(46);
+    }
+}

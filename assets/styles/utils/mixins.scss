@@ -1,0 +1,44 @@
+@mixin fill {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+$onboardingPadding: (
+    small: (
+        top: rem-calc(32),
+        right: rem-calc(32),
+        bottom: rem-calc(32),
+        left: rem-calc(32),
+    ),
+    medium: (
+        top: rem-calc(64),
+        right: rem-calc(64),
+        bottom: rem-calc(32),
+        left: rem-calc(64),
+    ),
+    large: (
+        top: rem-calc(80),
+        right: rem-calc(80),
+        bottom: rem-calc(64),
+        left: rem-calc(80),
+    ),
+);
+
+@mixin onboarding-padding($allowedSides: top left bottom right) {
+    @each $breakpoint, $sizes in $onboardingPadding {
+        @include breakpoint($breakpoint) {
+            @each $side in $allowedSides {
+                padding-#{$side}: map-get($sizes, $side);
+            }
+        }
+    }
+}
+@mixin onboarding-container {
+    @include onboarding-padding;
+    overflow-y: auto;
+
+    @include large {
+        overflow-y: unset;
+    }
+}

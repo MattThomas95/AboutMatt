@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Mark Offc For MC';
+    src: url('/fonts/MarkForMC.woff2') format('woff2'),
+        url('/fonts/MarkForMC.woff') format('woff'),
+        url('/fonts/MarkForMC.otf') format('opentype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Mark Offc For MC';
+    src: url('/fonts/MarkForMC-Bold.woff2') format('woff2'),
+        url('/fonts/MarkForMC-Bold.woff') format('woff'),
+        url('/fonts/MarkForMC-Bold.otf') format('opentype');
+    font-style: normal;
+    font-weight: 700;
+}

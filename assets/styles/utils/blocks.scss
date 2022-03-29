@@ -1,0 +1,46 @@
+// $paddingBreakpoints: (
+//     small: rem-calc(40),
+//     medium: rem-calc(60),
+//     large: rem-calc(80),
+//     xlarge: rem-calc(100),
+//     xxlarge: rem-calc(120),
+//     xxxlarge: rem-calc(150),
+// );
+$paddingBreakpoints: (
+    small: rem-calc(32),
+    large: rem-calc(32),
+    xlarge: rem-calc(50),
+    xxlarge: rem-calc(60),
+    xxxlarge: rem-calc(75),
+);
+
+@mixin block-paddify($sides: top left bottom right, $modifier: 1) {
+    @each $breakpoint, $size in $paddingBreakpoints {
+        @include breakpoint($breakpoint) {
+            @each $side in $sides {
+                padding-#{$side}: $size * $modifier;
+            }
+        }
+    }
+}
+@mixin block-padding-top($modifier: 1) {
+    @include block-paddify(top);
+}
+@mixin block-padding-left($modifier: 1) {
+    @include block-paddify(left);
+}
+@mixin block-padding-right($modifier: 1) {
+    @include block-paddify(right);
+}
+@mixin block-padding-bottom($modifier: 1) {
+    @include block-paddify(bottom);
+}
+@mixin block-padding-tb($modifier: 1) {
+    @include block-paddify(top bottom);
+}
+@mixin block-padding-rl($modifier: 1) {
+    @include block-paddify(right left);
+}
+@mixin block-padding($modifier: 1) {
+    @include block-paddify;
+}

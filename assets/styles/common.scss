@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    @include base;
+}
+
+body {
+    background-color: rgba(24, 32, 39, 1);
+    color: #ffffff;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* H Tags
+--------------------------------------------------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4{
+    font-family: "Antonio", sans-serif;
+}
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: inherit;
+}
+
+h1 {
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 4rem;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+}
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 4rem;
+        line-height: 5rem;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 0.8em;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 0.625em;
+}
+
+h3 {
+    @include h3;
+}
+
+h4 {
+    @include h4;
+}
+
+h5 {
+    @include h5;
+}
+
+h6 {
+    @include h6;
+}
+
+/* common tags
+--------------------------------------------------------------------------------------------------------------------- */
+nav {
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+a {
+    text-decoration: underline;
+    transition: color linear 0.2s;
+}
+
+p {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7em;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: #ffffff;
+}
+
+pre {
+    overflow: auto;
+    width: 100%;
+}
+
+/* helper classes
+--------------------------------------------------------------------------------------------------------------------- */
+.font-test-manuka {
+    font-family: $font-test-manuka;
+}
+
+.font-mark {
+    font-family: $font-mark;
+
+    &--bold {
+        @extend .font-mark;
+        font-weight: 700;
+    }
+}
+
+.block-wrapper {
+    width: 100%;
+
+    @include block-padding-tb;
+}
+
+.container,
+%container {
+    width: 100%;
+    max-width: $max-width;
+    margin-right: auto;
+    margin-left: auto;
+    clear: both;
+
+    @include block-padding-rl;
+
+    &--left {
+        @extend %container;
+        margin-left: 0;
+        max-width: rem-calc(900);
+    }
+
+    &--full {
+        @extend %container;
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
+
+.content {
+    p {
+        margin-bottom: rem-calc(24);
+        @include large {
+            margin-bottom: rem-calc(32);
+        }
+    }
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.embedded-video {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    box-shadow: 0 0 rem-calc(10) rgba(0, 0, 0, 0.6);
+
+    &.default {
+        padding-top: percentage(math.div(3, 4));
+    }
+
+    &.widescreen {
+        padding-top: percentage(math.div(9, 16));
+    }
+
+    video,
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    [data-site="portal"] & {
+        @include large {
+            width: calc(100% - #{rem-calc(80)});
+            margin-left: rem-calc(80);
+        }
+    }
+}
+
+@each $name, $color in $colors {
+    .color-#{$name} {
+        color: $color;
+    }
+
+    a.color-#{$name}:hover {
+        color: darken($color, 15%);
+    }
+
+    .background-gradient-#{$name} {
+        background: linear-gradient(
+            0deg,
+            rgba($color, 1) 10%,
+            rgba($color, 0.1) 100%
+        );
+    }
+
+    // [data-bg='#{$name}'],
+    .background-#{$name} {
+        background-color: $color;
+
+        @if index($dark, $name) {
+            color: white;
+
+            a {
+                color: white;
+            }
+        } @else if index($bright, $name) {
+            color: theme_colors("tertiary");
+
+            a {
+                color: theme_colors("tertiary");
+            }
+        }
+    }
+
+    .fill-#{$name} {
+        fill: $color;
+        transition: all linear 0.2s;
+    }
+
+    .stroke-#{$name} {
+        stroke: $color;
+    }
+}
+
+// remove when we have real colors@each $name, $color in $colors {
+@each $name, $color in $grayscale {
+    .color-grayscale-#{$name} {
+        color: $color;
+    }
+
+    a.color-grayscale-#{$name}:hover {
+        color: darken($color, 15%);
+    }
+
+    // [data-bg='#{$name}'],
+    .background-grayscale-#{$name} {
+        background-color: $color;
+
+        @if index($grayscaleDark, $name) {
+            color: grayscale_colors("quaternary");
+
+            a {
+                color: grayscale_colors("quaternary");
+            }
+        } @else if index($grayscaleBright, $name) {
+            color: grayscale_colors("octary");
+
+            a {
+                color: grayscale_colors("octary");
+            }
+        }
+    }
+
+    .fill-grayscale-#{$name} {
+        fill: $color;
+        transition: all linear 0.2s;
+    }
+
+    .stroke-grayscale-#{$name} {
+        stroke: $color;
+    }
+}
+
+img {
+    width: 100%;
+}
+
+.light-gradient {
+    position: relative;
+
+    &::after {
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        content: "";
+        pointer-events: none;
+    }
+}
+
+/** FIELDS
+===================================================================================================================== */
+
+/** NUMBER
+--------------------------------------------------------------------------------------------------------------------- */
+
+.input-number {
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+}

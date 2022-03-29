@@ -1,0 +1,12 @@
+/** https://stackoverflow.com/questions/25696846/checking-if-a-variable-is-included-in-a-list-of-words-in-scss
+ * in_list — Checks if a value exists in a list
+ *
+ * @param  $value the needle
+ * @param  $list  the haystack
+ * @return boolen TRUE if $value is found in the $list, FALSE otherwise.
+ */
+@function in_list($value, $list) {
+    @debug $value, $list, (false != index($list, $value));
+
+    @return (false != index($list, $value));
+}

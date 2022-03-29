@@ -1,0 +1,18 @@
+$grayscale: (
+    primary: #f8f9fa,
+    secondary: #e9ecef,
+    tertiary: #dee2e6,
+    quaternary: #ced4da,
+    quinary: #adb5bd,
+    senary: #6c757d,
+    septary: #495057,
+    octary: #343a40,
+    nonary: #212529,
+);
+
+@function grayscale_colors($key) {
+    @return map-get($grayscale, $key);
+}
+
+$grayscaleDark: senary septary octary nonary;
+$grayscaleBright: primary secondary tertiary quaternary quinary;
