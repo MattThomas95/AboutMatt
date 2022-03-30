@@ -1,9 +1,8 @@
 <template>
-  <div :class="$style.mainWrapper">
-    <h1>
-      Hello World
-    </h1>
-  </div>
+<div>
+  <Portfolio />
+  <Experience />
+</div>
 </template>
 
 <script>
